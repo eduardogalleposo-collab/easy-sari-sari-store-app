@@ -1,0 +1,208 @@
+/* Whole page */
+
+body {
+
+    font-family: Arial;
+
+    background: #f2f2f2;
+
+    margin: 0;
+
+}
+
+
+/* Main app */
+
+.app {
+
+    max-width: 400px;
+
+    margin: auto;
+
+    background: white;
+
+    min-height: 100vh;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* Title */
+
+h1 {
+
+    text-align: center;
+
+}
+
+
+p {
+
+    text-align: center;
+
+    color: gray;
+
+}
+
+
+/* All buttons */
+
+button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    margin-bottom: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #007bff;
+
+    color: white;
+
+    transition: background 0.2s ease;
+
+}
+
+
+button:hover {
+
+    background: #0056c1;
+
+}
+
+
+/* Input boxes */
+
+input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    box-sizing: border-box;
+
+    font-size: 16px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+}
+
+
+/* Add Product form */
+
+#productForm {
+
+    display: none;
+
+    margin-top: 15px;
+
+}
+
+
+/* Search box */
+
+#searchInput {
+
+    margin-top: 10px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* Product row */
+
+.product {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #ddd;
+
+    gap: 10px;
+
+}
+
+
+/* Selling price and buttons */
+
+.price-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+/* Edit and Delete buttons */
+
+.action-buttons {
+
+    display: flex;
+
+    gap: 5px;
+
+}
+
+
+/* Small buttons */
+
+.price-area button {
+
+    width: auto;
+
+    padding: 8px 12px;
+
+    margin: 0;
+
+}
+
+
+/* Delete button */
+
+.delete-button {
+
+    background: #dc3545;
+
+}
+
+
+.delete-button:hover {
+
+    background: #a71d2a;
+
+}
+
+
+/* Edit input boxes */
+
+.product input {
+
+    width: 150px;
+
+    margin-bottom: 5px;
+
+}

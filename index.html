@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>My Sari-Sari Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="app">
+
+
+        <h1>🛒 My Store</h1>
+
+
+        <p>Product Price List</p>
+
+
+        <!-- Add Product Button -->
+
+        <button onclick="showForm()">
+
+            Add Product
+
+        </button>
+
+
+        <!-- Search Box -->
+
+        <input
+
+            type="text"
+
+            id="searchInput"
+
+            placeholder="🔍 Search product..."
+
+            oninput="searchProducts()"
+
+        >
+
+
+        <!-- Add Product Form -->
+
+        <div id="productForm">
+
+
+            <input
+
+                type="text"
+
+                id="itemName"
+
+                placeholder="Enter item name"
+
+            >
+
+
+            <input
+
+                type="number"
+
+                id="costPrice"
+
+                placeholder="Enter cost price"
+
+            >
+
+
+            <button onclick="addProduct()">
+
+                Save Product
+
+            </button>
+
+
+        </div>
+
+
+        <h2>Products</h2>
+
+
+        <!-- Products will appear here -->
+
+        <div id="productList"></div>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
