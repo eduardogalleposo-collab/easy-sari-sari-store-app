@@ -1,8 +1,5 @@
-// Load saved products
 let products = JSON.parse(localStorage.getItem("products")) || [];
 
-
-// Show the Add Product form
 function showForm() {
 
     const form = document.getElementById("productForm");
@@ -10,10 +7,9 @@ function showForm() {
     form.style.display = "block";
 
     document.getElementById("itemName").focus();
+
 }
 
-
-// Add a new product
 function addProduct() {
 
     let itemName = document
@@ -25,66 +21,57 @@ function addProduct() {
         document.getElementById("costPrice").value
     );
 
+    let sellingPrice = Number(
+        document.getElementById("sellingPrice").value
+    );
 
-    // Check if information is valid
-    if (itemName === "" || costPrice <= 0) {
+    if (
+        itemName === "" ||
+        costPrice <= 0 ||
+        sellingPrice <= 0 ||
+        sellingPrice < costPrice
+    ) {
 
         alert(
-            "Please enter a valid item name and cost price greater than zero."
+            "Selling price must be greater than or equal to cost price."
         );
 
         return;
+
     }
 
-
-    // Add product
     products.push({
 
         name: itemName,
-
-        cost: costPrice
+        cost: costPrice,
+        selling: sellingPrice
 
     });
 
-
-    // Save products
     saveProducts();
 
-
-    // Display products
     displayProducts();
 
-
-    // Clear input boxes
     document.getElementById("itemName").value = "";
-
     document.getElementById("costPrice").value = "";
+    document.getElementById("sellingPrice").value = "";
 
-
-    // Hide form
     document.getElementById("productForm").style.display = "none";
+
 }
 
-
-// Display products
 function displayProducts(searchText = "") {
 
     let productList = document.getElementById("productList");
 
-
-    // Clear current list
     productList.innerHTML = "";
 
-
-    // Sort ALL products alphabetically A-Z
     products.sort(function(a, b) {
 
         return a.name.localeCompare(b.name);
 
     });
 
-
-    // Search products
     let filteredProducts = products.filter(function(product) {
 
         return product.name
@@ -93,29 +80,15 @@ function displayProducts(searchText = "") {
 
     });
 
-
-    // Display filtered products
     filteredProducts.forEach(function(product) {
 
-
-        // Find the original product index
         let index = products.indexOf(product);
 
+        let profit = product.selling - product.cost;
 
-        // Calculate 20% markup
-        let markup = product.cost * 0.20;
-
-
-        // Calculate selling price
-        let sellingPrice = product.cost + markup;
-
-
-        // Create product box
         let productBox = document.createElement("div");
 
-
         productBox.className = "product";
-
 
         productBox.innerHTML = `
 
@@ -127,19 +100,27 @@ function displayProducts(searchText = "") {
                     Cost: ₱${product.cost.toFixed(2)}
                 </small>
 
-            </div>
+                <br>
 
+                <small>
+                    Selling: ₱${product.selling.toFixed(2)}
+                </small>
+
+                <br>
+
+                <small>
+                    Profit: ₱${profit.toFixed(2)}
+                </small>
+
+            </div>
 
             <div class="price-area">
 
-
                 <div class="action-buttons">
-
 
                     <button onclick="editProduct(${index})">
                         Edit
                     </button>
-
 
                     <button
                         class="delete-button"
@@ -148,55 +129,38 @@ function displayProducts(searchText = "") {
                         Delete
                     </button>
 
-
                 </div>
-
-
-                <strong>
-                    ₱${sellingPrice.toFixed(2)}
-                </strong>
-
 
             </div>
 
         `;
 
-
-        // Add product to the screen
         productList.appendChild(productBox);
 
     });
 
 }
 
-
-// Search products
 function searchProducts() {
 
     let searchText = document
         .getElementById("searchInput")
         .value;
 
-
     displayProducts(searchText);
 
 }
 
-
-// Edit product
 function editProduct(index) {
 
     let product = products[index];
 
-
     let productBox =
         document.getElementsByClassName("product")[index];
-
 
     productBox.innerHTML = `
 
         <div>
-
 
             <input
                 type="text"
@@ -204,24 +168,25 @@ function editProduct(index) {
                 value="${product.name}"
             >
 
-
             <input
                 type="number"
                 id="editCost${index}"
                 value="${product.cost}"
             >
 
+            <input
+                type="number"
+                id="editSelling${index}"
+                value="${product.selling}"
+            >
 
         </div>
 
-
         <div class="price-area">
-
 
             <button onclick="saveProduct(${index})">
                 Save
             </button>
-
 
         </div>
 
@@ -229,8 +194,6 @@ function editProduct(index) {
 
 }
 
-
-// Save edited product
 function saveProduct(index) {
 
     let newName = document
@@ -238,70 +201,56 @@ function saveProduct(index) {
         .value
         .trim();
 
-
     let newCost = Number(
-
-        document
-            .getElementById(`editCost${index}`)
-            .value
-
+        document.getElementById(`editCost${index}`).value
     );
 
+    let newSelling = Number(
+        document.getElementById(`editSelling${index}`).value
+    );
 
-    if (newName === "" || newCost <= 0) {
+    if (
+        newName === "" ||
+        newCost <= 0 ||
+        newSelling <= 0 ||
+        newSelling < newCost
+    ) {
 
-        alert("Please enter valid information.");
+        alert(
+            "Selling price must be greater than or equal to cost price."
+        );
 
         return;
 
     }
 
-
-    // Update product
     products[index].name = newName;
-
     products[index].cost = newCost;
+    products[index].selling = newSelling;
 
-
-    // Save changes
     saveProducts();
 
-
-    // Display again
     displayProducts();
 
 }
 
-
-// Delete product
 function deleteProduct(index) {
 
     products.splice(index, 1);
 
-
-    // Save changes
     saveProducts();
 
-
-    // Display again
     displayProducts();
 
 }
 
-
-// Save products
 function saveProducts() {
 
     localStorage.setItem(
-
         "products",
-
         JSON.stringify(products)
-
     );
 
 }
 
-
-// Load products when app opens
 displayProducts();
