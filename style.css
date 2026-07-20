@@ -26,6 +26,49 @@ img {
 }
 
 
+/* SEARCH BAR */
+
+#searchInput {
+    display: block;
+    width: 220px;
+    margin: 10px auto;
+    box-sizing: border-box;
+}
+
+
+/* ADD PRODUCT BUTTON */
+
+button[onclick="showForm()"] {
+    display: block;
+    margin: 10px auto;
+}
+
+
+/* ADD PRODUCT FORM */
+
+#productForm {
+    text-align: center;
+}
+
+
+/* FORM INPUTS */
+
+#productForm input {
+    display: block;
+    width: 220px;
+    margin: 5px auto;
+    box-sizing: border-box;
+}
+
+
+/* SAVE PRODUCT BUTTON */
+
+#productForm button {
+    display: block;
+    margin: 8px auto;
+}
+
+
 /* PRODUCT LIST */
 
 #productList {
@@ -36,7 +79,8 @@ img {
 /* PRODUCT */
 
 .product {
-    margin: 20px 27px;
+    width: 280px;
+    margin: 20px auto;
     text-align: left;
 }
 
@@ -44,8 +88,8 @@ img {
 /* PRODUCT NAME AND SELLING PRICE */
 
 .product-top {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
 }
 
@@ -62,30 +106,46 @@ img {
 .selling-price {
     font-size: 18px;
     color: red;
+    text-align: right;
 }
 
 
 /* COST AND PROFIT */
 
 .product-details {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     font-size: 10px;
     margin-top: 3px;
+}
+
+
+/* PROFIT ON THE RIGHT */
+
+.product-details small:last-child {
+    text-align: right;
 }
 
 
 /* EDIT AND DELETE BUTTONS */
 
 .action-buttons {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 12px;
 }
 
 
-/* DELETE BUTTON */
+/* EDIT STAYS ON THE LEFT */
+
+.action-buttons button:first-child {
+    justify-self: start;
+}
+
+
+/* DELETE STAYS ON THE RIGHT */
 
 .delete-button {
+    justify-self: end;
     background: red;
 }
