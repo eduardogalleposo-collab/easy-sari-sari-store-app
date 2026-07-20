@@ -1,139 +1,91 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f2f2;
-}
-
-.app {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    min-height: 100vh;
-    background: white;
-    padding: 20px;
-}
-
-h1,
-h2,
-p {
+    font-family: Arial;
     text-align: center;
 }
 
-p {
-    color: gray;
-}
+
+/* BUTTONS */
 
 button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    background: #007bff;
+    background: blue;
     color: white;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
 }
 
-input {
+
+/* LOGO */
+
+img {
+    width: 200px;
+}
+
+.logo {
+    width: 200px;
+}
+
+
+/* PRODUCT LIST */
+
+#productList {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
 }
 
-#productForm {
-    display: none;
-    margin-top: 15px;
-}
 
-#searchInput {
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
+/* PRODUCT */
 
 .product {
+    margin: 20px 27px;
+    text-align: left;
+}
+
+
+/* PRODUCT NAME AND SELLING PRICE */
+
+.product-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    padding: 15px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: white;
 }
 
-.price-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+/* PRODUCT NAME */
+
+.product-top strong:first-child {
+    font-size: 18px;
 }
+
+
+/* SELLING PRICE */
+
+.selling-price {
+    font-size: 18px;
+    color: red;
+}
+
+
+/* COST AND PROFIT */
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+
+/* EDIT AND DELETE BUTTONS */
 
 .action-buttons {
     display: flex;
-    gap: 8px;
+    justify-content: space-between;
+    margin-top: 12px;
 }
 
-.price-area button {
-    width: auto;
-    margin: 0;
-    padding: 8px 12px;
-    font-size: 14px;
-}
+
+/* DELETE BUTTON */
 
 .delete-button {
-    background: #dc3545;
-}
-
-.product input {
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-/* Mobile phones and tablets */
-@media (max-width: 768px) {
-
-    .app {
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    .product {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-
-    .price-area {
-        width: 100%;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .action-buttons {
-        width: 100%;
-        display: flex;
-        gap: 10px;
-    }
-
-    .action-buttons button {
-        flex: 1;
-    }
-
-    .price-area strong {
-        font-size: 18px;
-    }
-
-    input,
-    button {
-        font-size: 16px;
-    }
+    background: red;
 }
