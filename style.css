@@ -1,229 +1,139 @@
-/* Make the page fit the screen */
 * {
     box-sizing: border-box;
 }
 
-
 body {
-
-    font-family: Arial;
-
-    background: #f2f2f2;
-
     margin: 0;
-
-    width: 100%;
-
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
 }
-
-
-/* Main app */
 
 .app {
-
     width: 100%;
-
-    max-width: 500px;
-
-    min-height: 100vh;
-
+    max-width: 600px;
     margin: auto;
-
-    padding: 20px;
-
+    min-height: 100vh;
     background: white;
-
+    padding: 20px;
 }
 
-
-/* Title */
-
-h1 {
-
+h1,
+h2,
+p {
     text-align: center;
-
 }
-
 
 p {
-
-    text-align: center;
-
     color: gray;
-
 }
-
-
-/* All buttons */
 
 button {
-
     width: 100%;
-
-    padding: 15px;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    margin-bottom: 10px;
-
+    padding: 14px;
     border: none;
-
     border-radius: 8px;
-
     background: #007bff;
-
     color: white;
-
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
-
-
-/* Input boxes */
 
 input {
-
     width: 100%;
-
     padding: 12px;
-
     margin-bottom: 10px;
-
-    font-size: 16px;
-
     border: 1px solid #ccc;
-
     border-radius: 8px;
-
+    font-size: 16px;
 }
-
-
-/* Add Product form */
 
 #productForm {
-
     display: none;
-
     margin-top: 15px;
-
 }
-
-
-/* Search box */
 
 #searchInput {
-
     margin-top: 10px;
-
     margin-bottom: 15px;
-
 }
-
-
-/* Product row */
 
 .product {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
-    padding: 15px 0;
-
-    border-bottom: 1px solid #ddd;
-
-    gap: 10px;
-
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
 }
-
-
-/* Selling price and buttons */
 
 .price-area {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
-    flex-shrink: 0;
-
 }
-
-
-/* Edit and Delete buttons */
 
 .action-buttons {
-
     display: flex;
-
-    gap: 5px;
-
+    gap: 8px;
 }
-
-
-/* Small buttons */
 
 .price-area button {
-
     width: auto;
-
-    padding: 8px 10px;
-
     margin: 0;
-
+    padding: 8px 12px;
     font-size: 14px;
-
 }
-
-
-/* Delete button */
 
 .delete-button {
-
     background: #dc3545;
-
 }
-
-
-/* Edit input boxes */
 
 .product input {
-
     width: 100%;
-
     margin-bottom: 5px;
-
 }
 
-
-/* For very small phone screens */
-
-@media (max-width: 380px) {
+/* Mobile phones and tablets */
+@media (max-width: 768px) {
 
     .app {
-
+        max-width: 100%;
         padding: 15px;
-
     }
-
 
     .product {
-
         flex-direction: column;
-
         align-items: stretch;
-
+        gap: 10px;
     }
-
 
     .price-area {
-
+        width: 100%;
         justify-content: space-between;
-
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
+    .action-buttons {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    .action-buttons button {
+        flex: 1;
+    }
+
+    .price-area strong {
+        font-size: 18px;
+    }
+
+    input,
+    button {
+        font-size: 16px;
+    }
 }
