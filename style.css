@@ -1,4 +1,8 @@
-/* Whole page */
+/* Make the page fit the screen */
+* {
+    box-sizing: border-box;
+}
+
 
 body {
 
@@ -8,6 +12,8 @@ body {
 
     margin: 0;
 
+    width: 100%;
+
 }
 
 
@@ -15,17 +21,17 @@ body {
 
 .app {
 
-    max-width: 400px;
+    width: 100%;
 
-    margin: auto;
-
-    background: white;
+    max-width: 500px;
 
     min-height: 100vh;
 
+    margin: auto;
+
     padding: 20px;
 
-    box-sizing: border-box;
+    background: white;
 
 }
 
@@ -70,15 +76,6 @@ button {
 
     color: white;
 
-    transition: background 0.2s ease;
-
-}
-
-
-button:hover {
-
-    background: #0056c1;
-
 }
 
 
@@ -91,8 +88,6 @@ input {
     padding: 12px;
 
     margin-bottom: 10px;
-
-    box-sizing: border-box;
 
     font-size: 16px;
 
@@ -135,7 +130,7 @@ input {
 
     align-items: center;
 
-    padding: 15px;
+    padding: 15px 0;
 
     border-bottom: 1px solid #ddd;
 
@@ -153,6 +148,8 @@ input {
     align-items: center;
 
     gap: 10px;
+
+    flex-shrink: 0;
 
 }
 
@@ -174,9 +171,11 @@ input {
 
     width: auto;
 
-    padding: 8px 12px;
+    padding: 8px 10px;
 
     margin: 0;
+
+    font-size: 14px;
 
 }
 
@@ -190,19 +189,41 @@ input {
 }
 
 
-.delete-button:hover {
-
-    background: #a71d2a;
-
-}
-
-
 /* Edit input boxes */
 
 .product input {
 
-    width: 150px;
+    width: 100%;
 
     margin-bottom: 5px;
+
+}
+
+
+/* For very small phone screens */
+
+@media (max-width: 380px) {
+
+    .app {
+
+        padding: 15px;
+
+    }
+
+
+    .product {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .price-area {
+
+        justify-content: space-between;
+
+    }
 
 }
