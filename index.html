@@ -21,9 +21,11 @@
 
         <p>Product Price List</p>
 
+
         <button onclick="showForm()">
             Add Product
         </button>
+
 
         <input
             type="text"
@@ -32,7 +34,13 @@
             oninput="searchProducts()"
         >
 
-        <div id="productForm">
+
+        <!-- Add Product Form -->
+
+        <div
+            id="productForm"
+            style="display: none;"
+        >
 
             <input
                 type="text"
@@ -40,11 +48,13 @@
                 placeholder="Enter item name"
             >
 
+
             <input
                 type="number"
                 id="costPrice"
                 placeholder="Enter cost price"
             >
+
 
             <input
                 type="number"
@@ -52,17 +62,22 @@
                 placeholder="Enter selling price"
             >
 
+
             <button onclick="addProduct()">
                 Save Product
             </button>
 
         </div>
 
+
         <h2>Products</h2>
+
 
         <div id="productList"></div>
 
+
     </div>
+
 
     <script src="script.js"></script>
 
